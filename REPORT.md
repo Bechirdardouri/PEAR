@@ -186,7 +186,7 @@ mean. The discussion of why is in §8 (*the path that led here*); the
 short version is that length normalisation flips the sign of the
 correlation between $g$ and downstream correctness on small models.
 
-![VEST schematic: two forward passes, image and blank, gold scored under each](results/figures/fig5_schematic.png)
+![The VEST measurement: two teacher-forced forward passes per example; their difference g(x) is the per-example vision contribution](results/figures/fig5_schematic.png)
 
 Two forward passes. No labels beyond gold. No auxiliary models. A
 typical example takes about a second on an H100, so a full benchmark
@@ -309,7 +309,7 @@ per-row parquets are at [results/probes/](results/probes/).
 
 ### The grid
 
-![VEST grid heatmap across eight cells](results/figures/fig1_grid.png)
+![Per-cell vision-driven fraction across the 2x4 grid: cool = vision-driven majority, warm = prior-driven majority](results/figures/fig1_grid.png)
 
 | model \ benchmark | ChartQA   | AI2D      | TextVQA   | RealWorldQA |
 | :---------------- | --------: | --------: | --------: | ----------: |
@@ -385,14 +385,14 @@ prior-driven slice without mischaracterising the dominant 80%.
 
 ### Reading the grid as a whole
 
-![g distributions across all eight cells](results/figures/fig2_g_distributions.png)
+![Per-cell histograms of g(x): cool bars (g > 0) are vision-driven; warm bars (g <= 0) are prior-driven](results/figures/fig2_g_distributions.png)
 
 The $g$ distributions tell the same story visually. ChartQA, TextVQA,
 and RealWorldQA all sit firmly in the positive half-line on both
 scales, with the bulk of mass at $g \gg 0$. AI2D on 2B is the only cell
 with bulk mass at $g < 0$. AI2D on 9B straddles zero.
 
-![Leverage scatter: VDF vs conditional pass-rate gap](results/figures/fig3_leverage.png)
+![Leverage scatter: VDF vs Pr[correct | g > 0] - Pr[correct | g <= 0], one point per cell](results/figures/fig3_leverage.png)
 
 The leverage scatter plots VDF against the conditional pass-rate gap
 (how much more often vision-driven examples are correct than
@@ -465,7 +465,7 @@ We probed both the base and the VGPO-tuned checkpoint on ChartQA
 VGPO training tends to push some examples into the long-low-probability
 tail). The results:
 
-![Base vs VGPO contrast on ChartQA](results/figures/fig4_e3_contrast.png)
+![Base Qwen2.5-VL-7B vs VGPO-RL-7B on ChartQA: VDF, Pr[correct | g>0], and Pr[correct | g<=0], all three Deltas within bootstrap noise](results/figures/fig4_e3_contrast.png)
 
 | metric                              | base 7B | VGPO-RL-7B |       Δ |
 | :---------------------------------- | ------: | ---------: | ------: |

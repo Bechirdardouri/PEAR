@@ -5,23 +5,32 @@ build-backend = "setuptools.build_meta"
 [project]
 name            = "pear"
 version         = "0.1.0"
-description     = "Vision-vs-prior measurement (VEST) for vision-language models."
+description     = "Perceptual Edge Audit for RL in vision-language models — the VEST measurement and its public audit."
 readme          = "README.md"
 license         = { file = "LICENSE" }
 requires-python = ">=3.10"
+authors         = [
+    { name = "Bechir Dardouri" },
+]
 keywords        = [
     "vision-language-models",
     "reinforcement-learning",
     "evaluation",
     "interpretability",
     "vqa",
+    "grpo",
+    "rlvr",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
@@ -43,9 +52,51 @@ flash = ["flash-attn>=2.6"]
 anls  = ["python-Levenshtein>=0.25"]
 dev   = ["pytest>=8.0", "ruff>=0.5"]
 
+[project.urls]
+Homepage   = "https://github.com/Bechirdardouri/PEAR"
+Repository = "https://github.com/Bechirdardouri/PEAR"
+Issues     = "https://github.com/Bechirdardouri/PEAR/issues"
+Report     = "https://github.com/Bechirdardouri/PEAR/blob/main/REPORT.md"
+Proposal   = "https://github.com/Bechirdardouri/PEAR/blob/main/proposal/PROPOSAL.md"
+
 [project.scripts]
 pear = "pear.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["pear*"]
-exclude = ["archive*", "results*", "scripts*", "tests*"]
+exclude = ["archive*", "results*", "scripts*", "tests*", "proposal*"]
+
+# ---------------------------------------------------------------------- ruff
+
+[tool.ruff]
+line-length = 92
+target-version = "py310"
+extend-exclude = ["archive", "results", "proposal/figures"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # bugbear
+    "UP",   # pyupgrade
+    "SIM",  # simplify
+]
+ignore = [
+    "E501",  # line length (handled by formatter)
+    "B008",  # default-arg-call (we use dataclasses.field)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011"]  # asserts in tests
+
+# --------------------------------------------------------------------- pytest
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths  = ["tests"]
+addopts    = "-q --tb=short"
+filterwarnings = [
+    "ignore:.*input array is constant.*:RuntimeWarning",
+    "ignore:.*constant.*:UserWarning",
+]

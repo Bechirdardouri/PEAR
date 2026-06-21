@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: pytest (py${{ matrix.python }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: [ "3.11", "3.12" ]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install minimal CPU deps
+        run: |
+          python -m pip install --upgrade pip
+          # The CI image has no GPU; install only what tests need.
+          # The package imports ``torch`` lazily in heavy modules, so
+          # we pin a CPU wheel to keep CI fast.
+          pip install --extra-index-url https://download.pytorch.org/whl/cpu torch
+          pip install numpy pandas pyarrow scipy Pillow tqdm matplotlib pytest
+      - name: Run tests
+        run: PYTHONPATH=. pytest tests/ -q

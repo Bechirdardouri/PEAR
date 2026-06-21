@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "PEAR: Perceptual Edge Audit for RL in vision-language models"
+message: "If you use this work, please cite it as below."
+type: software
+authors:
+  - family-names: "Dardouri"
+    given-names: "Bechir"
+repository-code: "https://github.com/Bechirdardouri/PEAR"
+abstract: >-
+  PEAR is a measurement-first toolkit for reinforcement learning in
+  vision-language models. Its central instrument, VEST, computes a
+  per-example score g(x) = log p(gold | image, q) − log p(gold | blank, q)
+  in two teacher-forced forward passes, and rolls those up to the
+  vision-driven fraction (VDF): the share of correct rollouts produced
+  on examples where seeing the image actually moved belief toward the
+  gold answer. A 2x4 audit grid across Qwen3.5 model scales and four
+  public VQA benchmarks shows VDF varies by nearly an order of
+  magnitude, contradicting the uniform "perception bottleneck" framing
+  of the perception-aware RL sub-literature. A before/after audit on
+  the one publicly released perception-aware checkpoint (VGPO) shows
+  no measurable VDF shift on out-of-distribution ChartQA.
+keywords:
+  - vision-language-models
+  - reinforcement-learning
+  - evaluation
+  - interpretability
+  - vqa
+license: MIT
+version: "0.1.0"
+date-released: "2026-06-21"
