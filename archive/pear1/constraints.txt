@@ -1,0 +1,15 @@
+# PEAR transitive-dependency upper bounds — defensive caps on packages
+# that could regress us if a new major version lands mid-experiment.
+#
+# Pass to pip via `--constraint pear/constraints.txt`.
+# Bounds are deliberately one major above current pins so legitimate
+# patch/minor upgrades resolve fine but a future N+2 jump is blocked.
+
+numpy<3
+protobuf<8
+pydantic<4
+tokenizers<0.24
+huggingface_hub<2
+fsspec<2027
+typing_extensions>=4.10,<5
+filelock<4

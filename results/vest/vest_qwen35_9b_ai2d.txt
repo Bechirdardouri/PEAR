@@ -1,0 +1,21 @@
+>>> [ALL]  n_examples = 800   n_correct_rollouts (sum pass_rate) = 162.69
+   g = log p(gold|image,q) - log p(gold|blank,q)   (units: nat)
+   mean g   = -0.250     median g = -0.338
+   frac(g > 0)  [seeing helps]  = 0.444
+   frac(g < 0)  [seeing HURTS]  = 0.556
+   pass_rate | g  > 0    = 0.230
+   pass_rate | g <= 0    = 0.182
+
+   *** vision_driven_frac = 0.502 ***
+       prior_driven_frac  = 0.498
+
+   rho(g, pass_rate) = +0.0792    95% CI [+0.0078, +0.1503]
+
+   g-bin breakdown  (6 bins):
+     g in [ -inf,  -2.0):  n_examples =  197   sum pass_rate =   38.12
+     g in [ -2.0,  -0.5):  n_examples =  181   sum pass_rate =   27.56
+     g in [ -0.5,  +0.0):  n_examples =   67   sum pass_rate =   15.31
+     g in [ +0.0,  +0.5):  n_examples =   61   sum pass_rate =   15.19
+     g in [ +0.5,  +2.0):  n_examples =  155   sum pass_rate =   34.06
+     g in [ +2.0,  +inf):  n_examples =  139   sum pass_rate =   32.44
+

@@ -1,0 +1,5 @@
+label source  n_examples  vision_driven_frac  prior_driven_frac  mean_g    rho  rho_ci_lo  rho_ci_hi
+   2B    ALL         679              +0.783             +0.217  +4.161 +0.113     +0.033     +0.186
+   9B    ALL         709              +0.880             +0.120  +6.987 +0.153     +0.075     +0.232
+
+[cli] wrote outputs/audit_2b_vs_9b.csv

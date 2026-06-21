@@ -1,0 +1,5 @@
+          label source  n_examples  vision_driven_frac  prior_driven_frac  mean_g    rho  rho_ci_lo  rho_ci_hi
+base_Qwen25VL7B    ALL         161              +0.801             +0.199  +3.610 +0.194     +0.041     +0.344
+vgpo_Qwen25VL7B    ALL         140              +0.794             +0.206  +4.219 +0.194     +0.012     +0.366
+
+[cli] wrote outputs/audit_e3_vgpo_chartqa.csv

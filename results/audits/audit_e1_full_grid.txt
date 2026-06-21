@@ -1,0 +1,11 @@
+         label source  n_examples  vision_driven_frac  prior_driven_frac  mean_g    rho  rho_ci_lo  rho_ci_hi
+    9B_chartqa    ALL         709              +0.880             +0.120  +6.987 +0.153     +0.075     +0.232
+       9B_ai2d    ALL         800              +0.502             +0.498  -0.250 +0.079     +0.008     +0.150
+    9B_textvqa    ALL         690              +0.983             +0.017 +13.541 +0.352     +0.285     +0.412
+9B_realworldqa    ALL         600              +0.793             +0.207  +0.903 +0.310     +0.234     +0.386
+    2B_chartqa    ALL         679              +0.783             +0.217  +4.161 +0.113     +0.033     +0.186
+       2B_ai2d    ALL         800              +0.114             +0.886  -3.134 -0.003     -0.069     +0.065
+    2B_textvqa    ALL         661              +1.000             +0.000  +8.501 +0.367     +0.302     +0.429
+2B_realworldqa    ALL         600              +0.775             +0.225  +0.769 +0.325     +0.242     +0.402
+
+[cli] wrote outputs/audit_e1_full_grid.csv

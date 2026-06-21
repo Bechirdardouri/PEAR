@@ -1,0 +1,42 @@
+# PEAR Python deps — pinned to versions available on PyPI 2026-06-14.
+#
+# Torch + flash-attention are installed SEPARATELY by setup_h100.sh
+# (they need a specific install order + cu126 wheel index).
+# Use `--constraint pear/constraints.txt` when pip-installing this
+# file to prevent transitive packages from drifting.
+#
+# Qwen3.5 (released 2026-02) requires very recent transformers; we pin
+# the latest 5.x release. If transformers 5.12 lacks qwen3_5 support
+# you can fall back to git+main: setup script handles this via
+# TRANSFORMERS_GIT=1 env var.
+
+transformers==5.12.0
+accelerate==1.14.0
+datasets==5.0.0
+# tokenizers: pinned via transformers' own range (<=0.23.0)
+safetensors==0.8.0
+huggingface_hub==1.19.0
+
+# Multimodal helpers used by Qwen3.5
+pillow==12.2.0
+qwen-vl-utils==0.0.14
+sentencepiece==0.2.1
+protobuf==7.35.1
+einops==0.8.2
+
+# Numerics & IO
+numpy==2.4.6
+pandas==3.0.3
+pyarrow==24.0.0
+
+# Analysis
+scikit-learn==1.9.0
+matplotlib==3.11.0
+
+# Utilities
+tqdm==4.67.1
+python-Levenshtein==0.27.3
+packaging==25.0
+
+# Dev / test
+pytest==8.4.0

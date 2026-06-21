@@ -1,0 +1,51 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "pear"
+version         = "0.1.0"
+description     = "Vision-vs-prior measurement (VEST) for vision-language models."
+readme          = "README.md"
+license         = { file = "LICENSE" }
+requires-python = ">=3.10"
+keywords        = [
+    "vision-language-models",
+    "reinforcement-learning",
+    "evaluation",
+    "interpretability",
+    "vqa",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.4",
+    "transformers>=4.50",
+    "accelerate>=0.30",
+    "pandas>=2.2",
+    "pyarrow>=15.0",
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "Pillow>=10.0",
+    "datasets>=2.20",
+    "tqdm>=4.66",
+    "matplotlib>=3.9",
+]
+
+[project.optional-dependencies]
+flash = ["flash-attn>=2.6"]
+anls  = ["python-Levenshtein>=0.25"]
+dev   = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+pear = "pear.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pear*"]
+exclude = ["archive*", "results*", "scripts*", "tests*"]
