@@ -214,6 +214,7 @@ A focused list of seven explicit threats to validity is in
 | if you want to... | go to |
 | :--- | :--- |
 | Read the full chain of thought, including the eight prior iterations that led to VEST | [REPORT.md](REPORT.md) |
+| Read the forward-looking research proposal that builds on this work (perceptual-edge curriculum and trained abstention) | [proposal/PROPOSAL.md](proposal/PROPOSAL.md) |
 | Re-run a single cell or the whole grid | [Quickstart](#quickstart) below |
 | Inspect any reported number row by row | [results/probes/](results/probes/) (ten committed parquets) |
 | Regenerate every figure from those parquets | `python scripts/make_figures.py` |
@@ -251,6 +252,10 @@ PEAR/
   archive/                      the eight-iteration research history that led
                                 to VEST: pear1/ .. pear6/ and seeing/, kept
                                 verbatim (see archive/README.md)
+
+  proposal/                     forward-looking research proposal that builds
+                                on the audit: perceptual-edge curriculum and
+                                trained abstention (PROPOSAL.md, figures/)
 
   REPORT.md                     full narrative report with chain of thought
   README.md                     this file
