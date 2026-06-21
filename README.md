@@ -34,7 +34,6 @@ That number — the share of model successes that can be attributed to
 seeing rather than guessing — is the deliverable of this project.
 
 
-
 ## Step 2 — The measurement we built
 
 For an example $x = (\text{image},\, q,\, \text{gold})$, score the gold
