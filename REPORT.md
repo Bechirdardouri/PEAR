@@ -51,6 +51,22 @@ findings.
 
 ---
 
+## The chain of thought, in five steps
+
+The twelve numbered sections below map onto five logical steps. The
+same five steps are also the structure of the [README](README.md), so a
+reader who wants the high-altitude version first should start there.
+
+| step | what happens | sections below |
+| :--- | :--- | :--- |
+| **1. The premise** | What does the perception-aware sub-literature believe, and how did it arrive there? | §1, §2 |
+| **2. The missing measurement** | What signal was missing, and how does VEST supply it in two forward passes? | §3, §4 |
+| **3. The grid finding** | What does VEST report across `{Qwen3.5-2B, Qwen3.5-9B} × {ChartQA, AI2D, TextVQA, RealWorldQA}`? | §5, §6 |
+| **4. The audit finding** | What does VEST report on the one public perception-aware checkpoint (VGPO)? | §7 |
+| **5. The path here, and the caveats** | What earlier iterations produced VEST, what does it not measure, and what should be done next? | §8, §9, §10, §11 |
+
+---
+
 ## Contents
 
 1. [The premise we set out to test](#1-the-premise-we-set-out-to-test)
