@@ -11,7 +11,6 @@ result on a benchmark grid, the audit of a public method, and the
 caveats. The full long-form discussion is in [REPORT.md](REPORT.md);
 the code is in [pear/](pear/).
 
----
 
 ## Step 1 — The premise we wanted to test
 
@@ -34,7 +33,7 @@ one:
 That number — the share of model successes that can be attributed to
 seeing rather than guessing — is the deliverable of this project.
 
----
+
 
 ## Step 2 — The measurement we built
 
@@ -137,7 +136,7 @@ The full per-cell discussion — including the limitation that TextVQA's
 0.98+ number is dominated by a tiny absolute numerator — is in
 [REPORT.md §6](REPORT.md#6-experiment-e1--the-grid).
 
----
+
 
 ## Step 4 — What VEST found on the one public method (E3)
 
