@@ -2,6 +2,9 @@
 
 ### Perceptual Edge Audit for RL in vision-language models
 
+> *Measurement before optimization. One number, two forward passes,
+> a public audit of a fast-moving sub-literature.*
+
 PEAR is a measurement-first toolkit. It provides one diagnostic, called
 **VEST**, that asks of every benchmark example a single question:
 
@@ -71,7 +74,7 @@ The same picture in per-example detail:
 
 ![g distributions across all eight cells](results/figures/fig2_g_distributions.png)
 
-Plain reading: **the perception-bottleneck premise is benchmark-specific**.
+Plain reading: **the perception-bottleneck premise is benchmark-specific.**
 It is empirically backwards on three of the four benchmarks we tested,
 and only describes the world on multiple-choice diagram QA at small
 scale. A grounding regularizer applied uniformly cannot move the

@@ -1,7 +1,10 @@
 # A Measurement-First Report on Perception-Aware RL for Vision-Language Models
 
 > *Companion report to the `pear` package. Written to be read linearly,
-> end to end, in roughly 25 minutes.*
+> end to end, in roughly twenty-five minutes.*
+
+> *Measurement comes before optimization. We built the instrument first,
+> ran it across a benchmark grid, and report what it found.*
 
 ---
 
@@ -40,6 +43,11 @@ The deliverable is the instrument, the data, and a public framing that
 distinguishes the *premise of the literature* from the *contribution of
 any individual method*. The natural follow-ups (E2 and E4) are sketched
 in §11.
+
+What follows is the chain of thought that produced this, in order:
+where the premise came from, what was missing, what we built, what it
+found, and what we believe and do not believe on the strength of those
+findings.
 
 ---
 
@@ -123,18 +131,19 @@ the gold answer, or did it not?
 
 The signal we want has three properties:
 
-- **Cheap.** It must be runnable on every example in a benchmark before
-  training, ideally cheaper than a single rollout.
-- **Label-only.** It must depend only on the gold answer and the image,
-  not on any auxiliary classifier or teacher model.
-- **Counterfactual.** It must answer *what would the model believe if it
-  had not seen the image?* — not *what does it believe?*.
+- **Cheap.** Runnable on every example in a benchmark before training,
+  ideally cheaper than a single rollout.
+- **Label-only.** Depends only on the gold answer and the image; no
+  auxiliary classifier or teacher model.
+- **Counterfactual.** Answers *what would the model believe if it had
+  not seen the image?* — not *what does it believe?*.
 
 A clean way to satisfy all three is a *paired teacher-forced
 log-probability*. Score the gold answer twice: once with the real
 image, once with the image replaced by a uniform-grey blank. The
-difference is the influence of pixels on the answer-token distribution,
-isolated from sampling noise and from anything else the model knows.
+difference is the influence of pixels on the answer-token
+distribution, isolated from sampling noise and from anything else the
+model knows.
 
 ## 4. VEST: the instrument
 
@@ -612,15 +621,15 @@ ordering across cells does not change. We report the floored numbers
 in the main tables because they are the more honest estimator of $g$,
 but every parquet contains the unfloored rows and can be re-decomposed.
 
-### Limitation 6 — $g$ is sensitive to tokenisation of the gold
+### Limitation 6 — `g` is sensitive to tokenisation of the gold
 
 If the gold answer happens to be a single token on one model and three
-tokens on another, $m_\text{img\_sum}$ scales accordingly. This is
-already a known issue with teacher-forced log-probability comparisons
-and is one of the reasons we report VDF (a within-distribution
-fraction) rather than absolute log-probability differences across
-models. The bootstrap CIs on $\rho$ are within-cell and therefore
-robust to this.
+tokens on another, the image-conditional log-probability `m_img_sum`
+scales accordingly. This is a known issue with teacher-forced
+log-probability comparisons, and is one of the reasons we report VDF —
+a within-distribution fraction — rather than absolute log-probability
+differences across models. The bootstrap CIs on $\rho$ are within-cell
+and therefore robust to this.
 
 ### Limitation 7 — VEST is a measurement, not a method
 
