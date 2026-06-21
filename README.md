@@ -24,10 +24,23 @@ VDF   =  (mass of correct rollouts on examples with g > 0)
          (mass of correct rollouts on all examples)
 ```
 
+### Names used in this repository
+
+Three names appear throughout the documentation, in a strict containment
+hierarchy:
+
+| name | role | where it lives |
+| :--- | :--- | :--- |
+| **PEAR** | the project, the Python package, and this repository (*Perceptual Edge Audit for RL*) | `pear/`, the repo root |
+| **VEST** | the diagnostic procedure PEAR implements (*Vision-vs-prior Equity Score Test*) | [pear/vest.py](pear/vest.py) and [pear/score.py](pear/score.py) |
+| **VDF** | the single headline number VEST produces per (model, benchmark) cell (*vision-driven fraction* of correct rollouts) | every result table below |
+| `g(x)` | the per-example score VEST computes; `g > 0` means vision moved belief toward gold | the `g` column of every probe parquet |
+
 A positive `g` means the image moved belief toward gold; that example is
 *vision-driven*. A non-positive `g` means the model already preferred gold
-from the question alone; that example is *prior-driven*. VDF is the share
-of model successes that can be attributed to seeing rather than guessing.
+from the question alone; that example is *prior-driven*. **VDF** is the
+share of model successes that can be attributed to seeing rather than
+guessing.
 
 ---
 

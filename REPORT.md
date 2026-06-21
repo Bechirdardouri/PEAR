@@ -147,6 +147,14 @@ model knows.
 
 ## 4. VEST: the instrument
 
+A note on naming, used consistently from here on. **PEAR** is the
+project and the Python package. **VEST** is the diagnostic procedure
+PEAR implements (*Vision-vs-prior Equity Score Test*). **VDF** is the
+single headline number VEST produces per (model, benchmark) cell
+(*vision-driven fraction* of correct rollouts). `g(x)` is the
+per-example score VEST computes. The hierarchy is PEAR ⊃ VEST ⊃
+{`g(x)`, VDF}.
+
 We call this quantity `g(x)` and the measurement procedure built on it
 **VEST** (Vision-vs-prior Equity Score Test). For an example
 `x = (image, question, gold)`:
@@ -211,8 +219,13 @@ the floor on; results without it can be reproduced by passing
 
 ## 5. Experimental plan
 
-VEST itself is one number. The work of this repository was to turn it
-into evidence. We outlined four experiments:
+VEST is a procedure; **VDF** is the number it produces. One number on
+one benchmark is a data point, not an argument. The work of this
+repository was to turn VEST into evidence by running it on a grid of
+(model, benchmark) cells, and to do so honestly enough that the
+direction of the resulting VDF values can be defended.
+
+We outlined four experiments:
 
 | | name | what it asks |
 | :--- | :--- | :--- |
