@@ -11,7 +11,7 @@ result on a benchmark grid, the audit of a public method, and the
 caveats. The full long-form discussion is in [REPORT.md](REPORT.md);
 the code is in [pear/](pear/).
 
-
+!image.png
 ## Step 1 — The premise we wanted to test
 
 Through 2025 and 2026 a new *perception-aware* RL algorithm for
